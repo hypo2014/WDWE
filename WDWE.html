@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>what are we eat?</title>
+<script>
+/*
+设计思路
+1：随机获取数组的一个元素；
+2：向html固定位置输出元素；
+3：添加定时，每隔100毫秒输出一次实现轮播效果；
+4：点击停止循环；
+*/
+var num;
+var time;//用于停止循环用；
+var menu = ["蛋炒饭","臭豆腐","炒年糕","必胜客","肯德基","麦当劳","八仙果","油爆虾","香菇青菜"];//建立数组
+function food() {
+    num = Math.floor(Math.random()*menu.length);//获取随机值
+    document.getElementById("demofan").innerHTML=menu[num];//输出获取的随机值对应的元素
+    //setInterval("myeat()",100);
+  
+}
+
+  
+
+/*function mywufan() {
+    fan = Math.floor(Math.random()*myfan.length);
+    document.getElementById("demofan").innerHTML=myfan[fan];
+    
+    //setInterval("location.reload()",100);
+}
+*/
+// function runtime() {
+    
+//     time=setInterval(function(){food()},20);
+// }
+// function stoptime() {
+//     clearInterval(time);
+// }	
+
+function wanmei() {
+    if (d.value=="开始") {
+        document.getElementById("d").value="暂停";
+        time=setInterval(function(){food()},20);
+    } else {
+        document.getElementById("d").value="开始";
+        clearInterval(time);
+    }
+}
+/*var test = ["aa","bb","cc","dd","ee"]; 
+document.write(test[Math.floor(Math.random()*test.length)]); 
+setInterval("location.reload()",100); */
+</script>
+</head>
+<body>
+    我们吃<p id="demofan"> 什么？ </p>
+<input id="d" type="button" onclick="wanmei()" value="开始">
+<input id="inputFood">
+</body>
+</html>
